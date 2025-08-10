@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    command: gunicorn TaskManagerAPI.wsgi:application --bind 0.0.0.0:8008
+    # volumes:
+    #   - .:/app
+    #   - static_volume:/app/staticfiles  # mount staticfiles folder
+    ports:
+      - "8008:8008"
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: taskmanager_db
+      POSTGRES_USER: taskuser
+      POSTGRES_PASSWORD: Alirez@1381
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+volumes:
+  postgres_data:
+  static_volume:
