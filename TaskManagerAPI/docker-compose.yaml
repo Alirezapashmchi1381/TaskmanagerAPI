@@ -15,9 +15,9 @@ services:
   db:
     image: postgres:13
     environment:
-      POSTGRES_DB: taskmanager_db
-      POSTGRES_USER: taskuser
-      POSTGRES_PASSWORD: Alirez@1381
+      POSTGRES_DB: DB_NAME
+      POSTGRES_USER: YOUR_DB_USER
+      POSTGRES_PASSWORD: YUOR_PASSWORD
     volumes:
       - postgres_data:/var/lib/postgresql/data/
 
